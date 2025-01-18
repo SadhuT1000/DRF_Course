@@ -32,8 +32,6 @@ class Habit(models.Model):
 
     action = models.CharField(
         max_length=150,
-        null=True,
-        blank=True,
         verbose_name="Действие",
         help_text="Напиши что делаешь",
     )
@@ -66,6 +64,8 @@ class Habit(models.Model):
     periodicity = models.IntegerField(
         default=1,
         verbose_name="Периодичность",
+        null=True,
+        blank=True,
         help_text="Укажите кол-во дней, за которые необходимо выполнить привычку (по умолчанию раз в день)",
     )
 

@@ -1,15 +1,17 @@
 from django.conf.urls.static import static
 from django.urls import path
 from rest_framework.routers import SimpleRouter
+
 from config import settings
 from habits.apps import HabitsConfig
-from habits.views import HabitPublishedListAPIView, HabitsListAPIView, HabitsCreateAPIView, HabitsDestroyAPIView, HabitsRetrieveAPIView, HabitsUpdateApiView
+from habits.views import (HabitPublishedListAPIView, HabitsCreateAPIView,
+                          HabitsDestroyAPIView, HabitsListAPIView,
+                          HabitsRetrieveAPIView, HabitsUpdateApiView)
 
 app_name = HabitsConfig.name
 
 
 urlpatterns = [
-
     path("habits/", HabitsListAPIView.as_view(), name="habits_list"),
     path("habits/<int:pk>/", HabitsRetrieveAPIView.as_view(), name="habits_retrieve"),
     path("habits/create/", HabitsCreateAPIView.as_view(), name="habits_create"),
