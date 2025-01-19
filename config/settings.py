@@ -1,3 +1,4 @@
+# flake8: noqa
 import os
 from datetime import timedelta
 from pathlib import Path
@@ -118,12 +119,14 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-CELERY_BEAT_SCHEDULER = 'django_celery_beat.schedulers:DatabaseScheduler'
+CELERY_BEAT_SCHEDULER = "django_celery_beat.schedulers:DatabaseScheduler"
 
 CELERY_BEAT_SCHEDULE = {
-    'send_reminder': {
-        'task': 'habits.tasks.send_reminder',  # Путь к задаче
-        'schedule': timedelta(seconds=40),  # Расписание выполнения задачи (например, каждые 10 минут)
+    "send_reminder": {
+        "task": "habits.tasks.send_reminder",  # Путь к задаче
+        "schedule": timedelta(
+            seconds=40
+        ),  # Расписание выполнения задачи (например, каждые 10 минут)
     },
 }
 

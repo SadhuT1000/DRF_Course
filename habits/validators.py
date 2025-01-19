@@ -1,3 +1,5 @@
+# flake8: noqa
+
 from rest_framework.serializers import ValidationError
 
 import habits

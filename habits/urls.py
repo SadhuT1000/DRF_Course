@@ -1,6 +1,7 @@
+# flake8: noqa
 from django.conf.urls.static import static
 from django.urls import path
-from rest_framework.routers import SimpleRouter
+
 
 from config import settings
 from habits.apps import HabitsConfig

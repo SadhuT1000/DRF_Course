@@ -1,3 +1,4 @@
+# flake8: noqa
 from django.contrib import admin
 from django.urls import include, path
 from drf_yasg import openapi

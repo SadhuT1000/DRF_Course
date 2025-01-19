@@ -4,6 +4,8 @@ asttokens==3.0.0
 billiard==4.2.1
 black==24.10.0
 celery==5.4.0
+certifi==2024.12.14
+charset-normalizer==3.4.1
 click==8.1.8
 click-didyoumean==0.3.1
 click-plugins==1.1.1
@@ -19,12 +21,15 @@ djangorestframework==3.15.2
 djangorestframework_simplejwt==5.4.0
 drf-yasg==1.21.8
 executing==2.1.0
+flake8==7.1.1
+idna==3.10
 inflection==0.5.1
 ipython==8.31.0
 isort==5.13.2
 jedi==0.19.2
 kombu==5.4.2
 matplotlib-inline==0.1.7
+mccabe==0.7.0
 mypy-extensions==1.0.0
 packaging==24.2
 parso==0.8.4
@@ -36,6 +41,8 @@ prompt_toolkit==3.0.48
 psycopg2-binary==2.9.10
 ptyprocess==0.7.0
 pure_eval==0.2.3
+pycodestyle==2.12.1
+pyflakes==3.2.0
 Pygments==2.19.1
 PyJWT==2.10.1
 python-crontab==3.2.0
@@ -44,11 +51,13 @@ python-dotenv==1.0.1
 pytz==2024.2
 PyYAML==6.0.2
 redis==5.2.1
+requests==2.32.3
 six==1.17.0
 sqlparse==0.5.3
 stack-data==0.6.3
 traitlets==5.14.3
 tzdata==2024.2
 uritemplate==4.1.1
+urllib3==2.3.0
 vine==5.1.0
 wcwidth==0.2.13

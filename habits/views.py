@@ -1,4 +1,3 @@
-
 from rest_framework.generics import (CreateAPIView, DestroyAPIView,
                                      ListAPIView, RetrieveAPIView,
                                      UpdateAPIView)
@@ -10,9 +9,9 @@ from habits.serializers import HabitsSerializer
 from users.permissions import IsOwner
 
 
-
 class HabitsListAPIView(ListAPIView):
     """Просмотр списка привычек"""
+
     queryset = Habit.objects.all()
     serializer_class = HabitsSerializer
     permission_classes = [IsAuthenticated]
@@ -26,6 +25,7 @@ class HabitsListAPIView(ListAPIView):
 
 class HabitsCreateAPIView(CreateAPIView):
     """Создание привычек"""
+
     queryset = Habit.objects.all()
     serializer_class = HabitsSerializer
     permission_classes = [IsAuthenticated]
@@ -38,6 +38,7 @@ class HabitsCreateAPIView(CreateAPIView):
 
 class HabitsUpdateApiView(UpdateAPIView):
     """Изменнение привычки"""
+
     queryset = Habit.objects.all()
     serializer_class = HabitsSerializer
     permission_classes = (IsAuthenticated, IsOwner)
@@ -45,6 +46,7 @@ class HabitsUpdateApiView(UpdateAPIView):
 
 class HabitsDestroyAPIView(DestroyAPIView):
     """Удаление привычки"""
+
     queryset = Habit.objects.all()
     serializer_class = HabitsSerializer
     permission_classes = (IsAuthenticated, IsOwner)
@@ -52,6 +54,7 @@ class HabitsDestroyAPIView(DestroyAPIView):
 
 class HabitsRetrieveAPIView(RetrieveAPIView):
     """Просмотр конкретной привычки"""
+
     queryset = Habit.objects.all()
     serializer_class = HabitsSerializer
     permission_classes = [IsAuthenticated]
