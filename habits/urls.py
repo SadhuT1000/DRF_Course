@@ -2,7 +2,6 @@
 from django.conf.urls.static import static
 from django.urls import path
 
-
 from config import settings
 from habits.apps import HabitsConfig
 from habits.views import (HabitPublishedListAPIView, HabitsCreateAPIView,

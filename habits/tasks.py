@@ -1,20 +1,14 @@
-from celery import shared_task
+# flake8: noqa
 from datetime import datetime, timedelta
+
+from celery import shared_task
 
 import users
 from habits.models import Habit
 from habits.services import send_telegram
 
-
-
-from datetime import datetime, timedelta
 from .models import Habit
 
-
-
-
-from datetime import datetime, timedelta
-from .models import Habit
 
 @shared_task
 def send_reminder():
@@ -23,19 +17,13 @@ def send_reminder():
     now = datetime.now()
     time_threshold = now - timedelta(seconds=40)
 
-
-    habits_to_remind = Habit.objects.filter(time_for_habit__lte=now.time(), time_for_habit__gte=time_threshold.time())
+    habits_to_remind = Habit.objects.filter(
+        time_for_habit__lte=now.time(), time_for_habit__gte=time_threshold.time()
+    )
 
     for habit in habits_to_remind:
         chat_id = users.tg_id
         if chat_id:
-            message = f'Я буду {habit.action} в {habit.time_for_habit} в {habit.place}'
+            message = f"Я буду {habit.action} в {habit.time_for_habit} в {habit.place}"
             send_telegram(chat_id, message)
-            print('Сообщение отправлено')
-
-
-
-
-
-
-
+            print("Сообщение отправлено")
