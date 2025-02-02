@@ -20,3 +20,10 @@
 
 ### Установка
 + клонировать репозиторий [Github] https://github.com/SadhuT1000/DRF_Course/pull/1
+
+<h1 align="center">Docker в проекте</h1> 
+
+<h3 align="center">Для быстрого старта:</h3>
+<p align="center">Скачайте проект с удаленного репозитория</p>
+<p align="center">Настройте зависимости в файле .env</p>
+<p align="center">Введите в терминал команду: docker-compose up -d --build</p>
