@@ -1,5 +1,6 @@
 # flake8: noqa
 import os
+import sys
 from datetime import timedelta
 from pathlib import Path
 
@@ -174,3 +175,19 @@ CELERY_RESULT_BACKEND = "redis://redis:6379/0"
 TELEGRAM_URL = "https://api.telegram.org/bot"
 
 BOT_TOKEN = os.getenv("BOT_TOKEN")
+
+CACHES = {
+    'default': {
+        'BACKEND': 'django.core.cache.backends.redis.RedisCache',
+        'LOCKATION': 'redis:localhost:6379/1'
+    }
+}
+
+
+if 'test' in sys.argv:
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.sqlite3',
+            'NAME': BASE_DIR / 'test_db.sqlite3',
+        }
+    }
