@@ -91,12 +91,17 @@ jobs:
 
       - name: Deploy to server
         run: |
-          scp -o StrictHostKeyChecking=no docker-compose.prod.yml .env ${{ secrets.SSH_USER }}@${{ secrets.SERVER_IP }}:/var/www/habit-tracker/
-          ssh -o StrictHostKeyChecking=no ${{ secrets.SSH_USER }}@${{ secrets.SERVER_IP }} "
-            cd /var/www/habit-tracker && \
-            docker system prune -af && \
-            docker volume prune -f && \
-            docker-compose -f docker-compose.prod.yml down --remove-orphans && \
-            docker-compose -f docker-compose.prod.yml pull && \
-            docker-compose -f docker-compose.prod.yml up -d --build --force-recreate
-          "
+#          scp -o StrictHostKeyChecking=no docker-compose.prod.yml .env ${{ secrets.SSH_USER }}@${{ secrets.SERVER_IP }}:/var/www/habit-tracker/
+          ssh -o StrictHostKeyChecking=no ${{ secrets.SSH_USER }}@${{ secrets.SERVER_IP }} << "EOF"
+          docker pull ${{ secrets.DOCKER_HUB_USERNAME }}/myapp:${{ github.sha }}
+          docker stop myapp || true
+          docker rm myapp || true
+          docker run -d --name myapp -p 80:8000 ${{ secrets.DOCKER_HUB_USERNAME }}/myapp:${{ github.sha }}
+          EOF
+#            cd /var/www/habit-tracker && \
+#            docker system prune -af && \
+#            docker volume prune -f && \
+#            docker-compose -f docker-compose.prod.yml down --remove-orphans && \
+#            docker-compose -f docker-compose.prod.yml pull && \
+#            docker-compose -f docker-compose.prod.yml up -d --build --force-recreate
+#          "
