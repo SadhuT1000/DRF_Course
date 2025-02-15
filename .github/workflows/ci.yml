@@ -31,15 +31,27 @@ jobs:
         with:
           python-version: '3.12'
 
+      - name: Create .env file
+        run: |
+          echo "${{ secrets.DOTENV }}" | sed '/^#/d' > .env
 
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
           pip install -r requirements.txt
+          
 
       - name: Run tests
+        env:
+             DJANGO_SETTINGS_MODULE: habits.settings
+             SECRET_KEY: ${{ secrets.SECRET_KEY }}
         run: |
-          python manage.py test
+              python manage.py test
+
+
+#      - name: Run tests
+#        run: |
+#          python manage.py test
 
   build:
     needs: tests
