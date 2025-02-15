@@ -43,7 +43,7 @@ jobs:
 
       - name: Run tests
         env:
-             DJANGO_SETTINGS_MODULE: habits.settings
+             DJANGO_SETTINGS_MODULE: config.settings
              SECRET_KEY: ${{ secrets.SECRET_KEY }}
         run: |
               python manage.py test
