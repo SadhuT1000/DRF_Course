@@ -31,9 +31,6 @@ jobs:
         with:
           python-version: '3.12'
 
-      - name: Create .env file
-        run: |
-          echo "${{ secrets.DOTENV }}" | sed '/^#/d' > .env
 
       - name: Install dependencies
         run: |
