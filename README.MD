@@ -158,8 +158,7 @@ For a successful deployment you will need:
 
 После успешного завершения процесса развертывания, ваше приложение будет доступно по следующему адресу:
 
--  Starting development server at http://127.0.0.1:8000/
-
+-  Starting development server at http://51.250.114.52:8000/
 
 
 
