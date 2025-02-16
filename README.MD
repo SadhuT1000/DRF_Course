@@ -150,6 +150,19 @@ For a successful deployment you will need:
 	- Django:  `http://localhost:8000`
 	- PostgreSQL: `5432`
 	- Redis:  `6379`
+
+## Настройка CI/CD
+... (остальная часть раздела с настройкой CI/CD)
+
+## Доступ к развернутому приложению
+
+После успешного завершения процесса развертывания, ваше приложение будет доступно по следующему адресу:
+
+-  Starting development server at http://127.0.0.1:8000/
+
+
+
+
 ## Emergency Commands (Server)
 
 ```bash
