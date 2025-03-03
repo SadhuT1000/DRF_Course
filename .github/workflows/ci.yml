@@ -79,8 +79,11 @@ jobs:
       - name: Deploy to server
         run: |
           ssh -o StrictHostKeyChecking=no ${{ secrets.SSH_USER }}@${{ secrets.SERVER_IP }} << EOF
-            docker pull ${{ secrets.DOCKER_HUB_USERNAME }}/myapp:${{ github.sha }}
-            docker stop habits || true
-            docker rm habits || true
-            docker run -d --name habits -p 80:8000 ${{ secrets.DOCKER_HUB_USERNAME }}/habits:${{ github.sha }}
+            ssh -l test -p22 158.160.130.161 << EOF2
+              docker pull ${{ secrets.DOCKER_HUB_USERNAME }}/myapp:${{ github.sha }}
+              docker stop habits || true
+              docker rm habits || true
+              docker run -d --name habits -p 80:8000 ${{ secrets.DOCKER_HUB_USERNAME }}/habits:${{ github.sha }}
+            EOF2
           EOF
+  
